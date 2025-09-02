@@ -1,0 +1,22 @@
+<!doctype html>
+	<head>
+		<title>{{ title }}/title>
+		<link href="./styles/index.css" rel="stylesheet">
+	</head>
+	<body>
+		<!-- app bar -->
+		<div>
+			<div>
+				{{ site_title }}
+			</div>
+			<div>
+				todo make flex to fill horizontal space, and add navigation
+			</div>
+		</div>
+		<!-- content section -->
+		<div>
+			{% block content %}	
+			{% endblock %}
+		</div>
+	</body>
+</html>
