@@ -1,0 +1,30 @@
+{
+  "name": "mn-arrl-site",
+  "version": "1.0.0",
+  "description": "A website for the Minnesota ARRL section.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "eleventy --serve",
+    "build": "eleventy"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jghibiki/MN-ARRL-Site.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jghibiki/MN-ARRL-Site/issues"
+  },
+  "homepage": "https://github.com/jghibiki/MN-ARRL-Site#readme",
+  "type": "module",
+  "dependencies": {
+    "@11ty/eleventy": "^3.1.2",
+    "@tailwindcss/postcss": "^4.1.12",
+    "nunjucks": "^3.2.4",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.1.12"
+  }
+}
