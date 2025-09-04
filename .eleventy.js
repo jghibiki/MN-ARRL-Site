@@ -2,6 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import postcss from 'postcss';
 import tailwindcss from '@tailwindcss/postcss';
+import { HtmlBasePlugin } from "@11ty/eleventy";
 
 
 export default async function (eleventyConfig) {
@@ -32,6 +33,8 @@ export default async function (eleventyConfig) {
 
 		fs.writeFileSync(tailwindOutputPath, result.css);
 	});
+
+	eleventyConfig.addPlugin(HtmlBasePlugin);
 
 	return {
 		dir: {
