@@ -33,10 +33,10 @@
       {% for item in officials.officials %}
         <p>
           <strong>{{ item.role }}:</strong> 
+          {{ item.name }},
+          <a class="text-blue-600" href="https://www.qrz.com/db/{{ item.callsign }}" target="_blank" rel="noopener noreferrer">{{ item.callsign }}</a>
           {% if item.email %}
-            {{ item.name }} (<a class="text-blue-600" href="mailto:{{ item.email }}">Contact</a>)
-          {% else %}
-            {{ item.name }}
+            (<a class="text-blue-600" href="mailto:{{ item.email }}">Contact</a>)
           {% endif %}
         </p>
       {% endfor %}
