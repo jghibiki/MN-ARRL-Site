@@ -1,22 +1,54 @@
+{% set site_title = "ARRL Minnesota Section" %}
+{% set page_title = page_title | default(null) %}
+{% set composite_title %}
+    {{ page_title + ' - ' + site_title if page_title else site_title }}
+{% endset %}
+
 <!doctype html>
-	<head>
-		<title>{{ title }}/title>
-		<link href="./styles/index.css" rel="stylesheet">
-	</head>
-	<body>
-		<!-- app bar -->
-		<div>
-			<div>
-				{{ site_title }}
-			</div>
-			<div>
-				todo make flex to fill horizontal space, and add navigation
-			</div>
+<html>
+  <head>
+    <title>{{composite_title}}</title>
+    <link href="/styles/index.css" rel="stylesheet">
+  </head>
+  <body>
+    <header class="bg-indigo-500 p-5">
+      <div class="flex gap-4">
+        <div class="flex-none content-center">
+		    <a href="/">
+				<h1 class="text-4xl">{{ site_title }}</h1>
+		    </a>
+        </div>
+        <div class="flex-auto"></div>
+        <div class="flex-none content-center">
+			<a href="/about/">
+			About
+			</a>
 		</div>
-		<!-- content section -->
-		<div>
-			{% block content %}	
-			{% endblock %}
+        <div class="flex-none content-center">
+			<a href="/clubs/">
+				Clubs
+			</a>
 		</div>
-	</body>
+        <div class="flex-none content-center">
+			<a href="/resources/">
+				Resources
+			</a>		
+		</div>
+        <div class="flex-none content-center">
+			<a href="/events/">
+				Events
+			</a>
+		</div>
+        <div class="flex-none content-center">
+			<a href="/news/">
+				News
+			</a>
+		</div>
+      </div>
+    </header>
+    <main>
+      {% block content %}
+      {% endblock %}
+    </main>
+  </body>
 </html>
