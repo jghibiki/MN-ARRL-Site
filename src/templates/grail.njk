@@ -11,7 +11,7 @@
     <link href="/styles/index.css" rel="stylesheet">
   </head>
   <body>
-    <header class="bg-indigo-500 p-5">
+    <header class="bg-indigo-500 font-bold text-white p-5">
       <div class="flex gap-4">
         <div class="flex-none content-center">
 		    <a href="/">
@@ -46,9 +46,30 @@
 		</div>
       </div>
     </header>
+	<div class="flex bg-indigo-700 min-h-2"></div>
+	<div class="flex bg-emerald-700 min-h-2"></div>
+	<div class="flex bg-emerald-600 min-h-2"></div>
+	<div class="flex bg-emerald-500 min-h-2"></div>
     <main>
-      {% block content %}
-      {% endblock %}
+		<div>
+			{% block header %}
+			{% endblock %}
+
+			<div class="grid grid-cols-6 gap-4">
+				<div class="col-span-1">
+					{% block left_sidebar %}
+					{% endblock %}
+				</diV>
+				<div class="col-span-4 flex justyfy-center">
+					{% block content %}
+					{% endblock %}
+				</div>
+				<div class="col-span-1">
+					{% block right_sidebar %}
+					{% endblock %}
+				</diV>
+			</div>
+		</div>
     </main>
   </body>
 </html>
