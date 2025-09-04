@@ -1,9 +1,25 @@
 {% extends "./templates/grail.njk" %}
+{% import "./data/events.njk" as events_data %}
+{% import "./templates/event_card.njk" as event_macros %}
 
-{%set page_title = "Events" %}
+{% set page_title = "Events" %}
+
+{% set sorted_events = events_data.events | multi_attribute_sort(["start_date", "start_time"], true) %}
+
+{% block header %}
+    <div class="gap-4 justyfy-center text-center">
+      <h2 class="text-3xl font-bold text-indigo-800 mt-6 mb-8">
+        Upcoming Events
+      </h2>
+    </div>
+{% endblock %}
 
 {% block content %}
-  <div class="flex-auto gap-4 text-center justify-center">
-    <p>This is the events page. More content coming soon!</p>
+  <div class="flex-auto gap-4 text-center justify-center mt-6">
+    <div class="grid grid-cols-2 gap-4">
+      {% for event in sorted_events %}
+        {{ event_macros.event_card(event) }}
+      {% endfor %}
+    </div>
   </div>
 {% endblock %}

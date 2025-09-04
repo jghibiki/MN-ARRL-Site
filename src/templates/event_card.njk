@@ -1,0 +1,43 @@
+{% macro event_card(event) %}
+  <div class="box-shadow-sm p-6 mb-6 rounded-lg bg-white border border-gray-200 shadow-md text-left max-w-xl mx-auto">
+    <div class="mb-2 flex items-center justify-between">
+      <h4 class="text-2xl font-bold text-indigo-800">{{ event.name }}</h4>
+    </div>
+    <div class="mb-2">
+      <span class="px-2 py-1 bg-indigo-100 text-indigo-700 rounded text-xs font-semibold">{{ event.type_of_event }}</span>
+    </div>
+    {% if event.host %}
+    <div class="text-gray-700">
+      <strong>Hosted by:</strong> {{ event.host }}
+    </div>
+    {% endif %}
+    {% if event.contact_info %}
+        <div class="mb-2 text-gray-700">
+            <span>
+                <strong>Contact:</strong> {{ event.contact_name }}
+                (<a class="text-blue-600 underline" href="mailto:{{ event.contact_info }}">{{ event.contact_info }}</a>)
+            </span>
+        </div>
+    {% endif %}
+    <div class="text-gray-700">
+      <strong>Starts at:</strong> <span class="font-semibold">{{ event.start_date }} {{ event.start_time }}</span>
+    </div>
+    <div class="mb-2 text-gray-700">
+      <strong>Ends at:</strong> <span class="font-semibold"><span class="font-semibold">{{ event.end_date }} {{ event.end_time }}</span>
+    </div>
+    <div class="mb-2 text-gray-700">
+      <strong>Location:</strong> {{ event.event_location }}
+    </div>
+    <div class="mb-2 text-gray-700">
+      <strong>Cost:</strong> {{ event.cost }}
+    </div>
+    <div class="mb-4 text-gray-600">
+      <strong>Description:</strong> {{ event.event_description }}
+    </div>
+    {% if event.website_link %}
+    <div class="mb-2 text-gray-700 justify-right text-right">
+      <a class="text-blue-600 underline" href="{{ event.website_link }}" target="_blank" rel="noopener noreferrer">Visit Event Site</a>
+    </div>
+    {% endif %}
+  </div>
+{% endmacro %}

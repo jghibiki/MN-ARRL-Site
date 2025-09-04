@@ -36,6 +36,16 @@ export default async function (eleventyConfig) {
 
 	eleventyConfig.addPlugin(HtmlBasePlugin);
 
+	eleventyConfig.addNunjucksFilter("multi_attribute_sort", (array, attributes, reverse = false) => {
+		return array.sort((a, b) => {
+			for (let attr of attributes) {
+				if (a[attr] < b[attr]) return reverse ? 1 : -1;
+				if (a[attr] > b[attr]) return reverse ? -1 : 1;
+			}
+			return 0;
+		});
+	})
+
 	return {
 		dir: {
 			output: outputPath,
