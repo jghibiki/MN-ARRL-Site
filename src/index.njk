@@ -4,8 +4,8 @@
 {% import "./data/quick_links.njk" as quick_links %}
 
 {% block header %}
-    <div class="gap-4 justyfy-center text-center">
-      <h2 class="text-3xl font-bold text-indigo-800 mt-6 mb-8">
+    <div class="gap-2 md:gap-4 justyfy-center text-center p-2 md:p-0">
+      <h2 class="text-3xl font-bold text-indigo-800 mt-2 md:mt-6 mt-4 mb-6 md:mb-8">
         Welcome to the ARRL Minnesota Section
       </h2>
       <p>
@@ -15,47 +15,49 @@
 {% endblock %}
 
 {% block content %}
-  <div class="w-6 flex-auto">
-    <h3 class="text-2xl font-bold text-indigo-800 mt-6">
-      Announcements:
-    </h3>
-    <ul class="list-disc list-inside">
-      {% for item in announcements.announcements %}
-        <li>{{ item.date }} - {{ item.message }}</li>
-      {% endfor %}
-    </ul>
-  </div>
-  <div class="w-6 flex-auto">
-    <h3 class="text-2xl font-bold text-indigo-800 mt-6">
-      Officials:
-    </h3>
-    <div>
-      {% for item in officials.officials %}
-        <p>
-          <strong>{{ item.role }}:</strong> 
-          {{ item.name }},
-          <a class="text-blue-600" href="https://www.qrz.com/db/{{ item.callsign }}" target="_blank" rel="noopener noreferrer">{{ item.callsign }}</a>
-          {% if item.email %}
-            (<a class="text-blue-600" href="mailto:{{ item.email }}">Contact</a>)
-          {% endif %}
-        </p>
+  <div class="flex-auto grid grid-cols-2 md:gap-4 gap-2">
+    <div class="col-span-2 md:col-span-1">
+      <h3 class="text-2xl font-bold text-indigo-800 mt-6">
+        Announcements:
+      </h3>
+      <ul class="list-disc list-inside">
+        {% for item in announcements.announcements %}
+          <li>{{ item.date }} - {{ item.message }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+    <div class="col-span-2 md:col-span-1">
+      <h3 class="text-2xl font-bold text-indigo-800 mt-6">
+        Officials:
+      </h3>
+      <div>
+        {% for item in officials.officials %}
+          <p>
+            <strong>{{ item.role }}:</strong> 
+            {{ item.name }},
+            <a class="text-blue-600" href="https://www.qrz.com/db/{{ item.callsign }}" target="_blank" rel="noopener noreferrer">{{ item.callsign }}</a>
+            {% if item.email %}
+              (<a class="text-blue-600" href="mailto:{{ item.email }}">Contact</a>)
+            {% endif %}
+          </p>
+        {% endfor %}
+      </div>
+      <h3 class="text-2xl font-bold text-indigo-800 mt-6">
+        Quick Links:
+      </h3>
+      {% for item in quick_links.quick_links %}
+        <ul class="list-disc list-inside">
+          <li>
+            <a class="text-blue-600" href="{{ item.link }}" target="_blank" rel="noopener noreferrer">{{ item.name }}</a>
+          </li>
+        </ul>
       {% endfor %}
     </div>
-    <h3 class="text-2xl font-bold text-indigo-800 mt-6">
-      Quick Links:
-    </h3>
-    {% for item in quick_links.quick_links %}
-      <ul class="list-disc list-inside">
-        <li>
-          <a class="text-blue-600" href="{{ item.link }}" target="_blank" rel="noopener noreferrer">{{ item.name }}</a>
-        </li>
-      </ul>
-    {% endfor %}
   </div>
 {% endblock %}
 
 {% block right_sidebar%}
-  <center>
+  <center class="collapse md:visible">
     <a href="https://www.hamqsl.com/solar.html" title="Click to add Solar-Terrestrial Data to your website!"><img src="https://www.hamqsl.com/solarvhf.php"></a>
   </center>
 {% endblock %}
