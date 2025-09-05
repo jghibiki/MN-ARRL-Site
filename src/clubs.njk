@@ -1,9 +1,71 @@
 {% extends "./templates/grail.njk" %}
+{% import "./templates/club_card.njk" as club_card %}
+{% import "./data/clubs.njk" as clubs %}
 
 {%set page_title = "Clubs" %}
 
+{% block header %}
+    <div class="gap-4 justyfy-center text-center">
+      <h2 class="text-3xl font-bold text-indigo-800 md:mt-6 mt-4 md:mb-8 mb-4">
+        Clubs
+      </h2>
+    </div>
+{% endblock %}
+
+
 {% block content %}
   <div class="flex-auto gap-4 text-center justify-center">
-    <p>This is the clubs page. More content coming soon!</p>
+    <div class="flex mr-5 -mb-2">
+      <div class="flex-auto"></div>
+      <div class="flex-span">
+        <a href="https://forms.gle/mRCH5JfUBGuHZ7BbA " target="_blank" rel="noopener noreferrer">
+          <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+            Add or Update a Club
+          </button>
+        </a>
+      </div>
+    </div>
+    <div class="flex-auto m-5 p-0 border-2 border-indigo-500">
+        <button class="accordion">
+          <div class="flex">
+            <div class="flex-none">
+            Twin Cities Metro Clubs
+            </div>
+            <div class="flex-auto"></div>
+            <div id="arrow" class="flex-none content-center transition transition-all duration-300" >
+              <svg  xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" height="1em" width="1em" viewBox="0 0 448 512"><path fill="currentColor" d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z"></path></svg> 
+            </div>
+          </div>
+        </button>
+        <div class="panel flex text-left">
+            <div class="flex-auto mt-5 grid md:grid-cols-2 md:gap-4 gap-1">
+              {% for club in clubs.twin_cities_metro_clubs %}
+                {{ club_card.club_card(club) }}
+              {% endfor %}
+            </div>
+        </div>
+    </div>
   </div>
+{% endblock %}
+
+{% block scripts %}
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    /* Toggle between adding and removing the "active" class,
+    to highlight the button that controls the panel */
+    this.classList.toggle("active");
+    this.querySelector("#arrow").classList.toggle("rotate-180");
+
+    /* Toggle between hiding and showing the active panel */
+    var panel = this.nextElementSibling;
+    if (panel.style.display === "block") {
+      panel.style.display = "none";
+    } else {
+      panel.style.display = "block";
+    }
+  });
+} 
 {% endblock %}

@@ -11,20 +11,21 @@
       <h2 class="text-3xl font-bold text-indigo-800 md:mt-6 mt-4 md:mb-8 mb-4">
         Upcoming Events
       </h2>
-      <div class="grid md:grid-cols-6 md:mb-4">
-        <div class="md:col-span-4"></div>
-        <div class="md:col-span-3">
-          <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-            Add an Event
-          </button>
-        </div>
-        <div class="md:col-span-1"></div>
-      </div>
     </div>
 {% endblock %}
 
 {% block content %}
-  <div class="flex-auto md:gap-4 gap-1 text-center justify-center md:mt-6 mt-4">
+  <div class="flex-auto gap-4 text-center justify-center">
+    <div class="flex mr-5 mb-4">
+      <div class="flex-auto"></div>
+      <div class="flex-span">
+        <a href="https://forms.gle/ZMSWXadwb7TYZxSr5" target="_blank" rel="noopener noreferrer">
+          <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+            Add an Event
+          </button>
+        </a>
+      </div>
+    </div>
     <div class="grid md:grid-cols-2 md:gap-4 gap-1">
       {% for event in sorted_events %}
         {{ event_macros.event_card(event) }}
