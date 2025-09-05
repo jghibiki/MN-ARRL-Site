@@ -1,9 +1,39 @@
+---
+permalink: "/news/"
+---
 {% extends "./templates/grail.njk" %}
+{% set page_title = "News" %}
 
-{%set page_title = "News" %}
+
+{% block header %}
+    <div class="gap-4 justyfy-center text-center">
+      <h2 class="text-3xl font-bold text-indigo-800 md:mt-6 mt-4 md:mb-8 mb-4">
+        News
+      </h2>
+    </div>
+{% endblock %}
 
 {% block content %}
-  <div class="flex-auto gap-4 text-center justify-center">
-    <p>This is the news page. More content coming soon!</p>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    {% for post in collections.news | reverse %}
+      <div class="bg-white rounded-lg shadow-md p-6 flex flex-col justify-between">
+        <div>
+          <h3 class="text-xl font-bold mb-2">
+            <a class="text-blue-600 hover:underline" href="{{ post.url }}">{{ post.data.title }}</a>
+          </h3>
+          <p class="text-gray-500 text-sm mb-2">{{ post.date | date("yyyy-MM-dd") }}</p>
+            <p class="mb-2 text-gray-700">
+              {{ post.data.excerpt }} 
+              <a class="text-blue-600 hover:underline" href="{{ post.url }}">[ Keep reading ]</a>
+            </p>
+        </div>
+        <div class="mt-4 text-sm text-gray-600">
+          <span>By {{ post.data.author }}</span>
+          {% if post.data.call_sign %}
+            <a class="text-blue-600 hover:underline" href="https://www.qrz.com/db/{{ post.data.call_sign }}" target="_blank" rel="noopener noreferrer">{{ post.data.call_sign }}</a>
+          {% endif %}
+        </div>
+      </div>
+    {% endfor %}
   </div>
 {% endblock %}

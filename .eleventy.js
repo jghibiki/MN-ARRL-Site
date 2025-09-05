@@ -3,6 +3,7 @@ import path from 'path';
 import postcss from 'postcss';
 import tailwindcss from '@tailwindcss/postcss';
 import { HtmlBasePlugin } from "@11ty/eleventy";
+import { DateTime } from 'luxon';
 
 
 export default async function (eleventyConfig) {
@@ -15,6 +16,14 @@ export default async function (eleventyConfig) {
 	}
 
 	eleventyConfig.setInputDirectory("src")
+
+	// Add a collection for news posts (markdown files in src/news/)
+	eleventyConfig.addCollection("news", function (collectionApi) {
+		return collectionApi.getFilteredByGlob("src/news/*.md").sort((a, b) => {
+			// Sort newest first by date (from front matter or file name)
+			return b.date - a.date;
+		});
+	});
 
 	eleventyConfig.on('eleventy.before', async () => {
 		const tailwindInputPath = path.resolve('./src/styles/index.css');
@@ -44,6 +53,20 @@ export default async function (eleventyConfig) {
 			}
 			return 0;
 		});
+	})
+
+	eleventyConfig.addNunjucksFilter("date", (dateObj, format = 'yyyy-MM-dd') => {
+		if (dateObj instanceof Date) {
+			return DateTime.fromJSDate(dateObj, {
+				zone: 'utc',
+				locale: "en"
+			}).toFormat(format);
+		} else {
+			return DateTime.fromISO(dateObj, {
+				zone: "utc",
+				locale: "en"
+			}).toFormat(format);
+		}
 	})
 
 	return {

@@ -56,6 +56,10 @@
     <main>
 		<div>
 			{% block header %}
+				<div class="gap-4 justyfy-center text-center">
+				<h2 class="text-3xl font-bold text-indigo-800 md:mt-6 mt-4 md:mb-4 mb-4">
+					{{title}}
+				</h2>
 			{% endblock %}
 
 			<div class="grid grid-cols-6 md:gap-4 gap-2">
@@ -65,6 +69,24 @@
 				</div>
 				<div class="md:col-span-4 col-span-6 p-2 md:p-0 flex justyfy-center">
 					{% block content %}
+						<div class="flex-auto">
+							<div class="flex-auto text-center">
+								{{ date | date("yyyy-MM-dd") }} 
+								{% if author %} 
+									- By {{ author }}
+								{% endif %} 
+								{% if call_sign %} 
+									- <a class="text-blue-600 hover:underline" href="https://www.qrz.com/db/{{ call_sign }}" target="_blank" rel="noopener noreferrer">{{ call_sign }}</a>
+								{% endif %}
+							</div>
+							<div class="grid grid-cols-6 mt-4">
+								<div></div>
+								<div class="text-left col-span-4 markdown">
+									{{ content | safe }}
+								<div>
+								<div></div>
+							</div>
+						</div>
 					{% endblock %}
 				</div>
 				<div class="md:col-span-1">
