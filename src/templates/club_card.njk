@@ -12,9 +12,11 @@
         <div class="mb-2 flex items-center justify-between">
           <h4 class="text-2xl font-bold text-indigo-800">{{ club.name }}</h4>
         </div>
+        {% if club.call_signs %}
         <div class="mb-2">
           <span class="px-2 py-1 bg-indigo-100 text-indigo-700 rounded text-xs font-semibold">{{ club.call_signs }}</span>
         </div>
+        {% endif %}
       </div>
     </div>
     {% if club.home_city %}

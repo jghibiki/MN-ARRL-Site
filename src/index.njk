@@ -4,7 +4,7 @@
 {% import "./data/quick_links.njk" as quick_links %}
 
 {% block header %}
-    <div class="gap-2 md:gap-4 justyfy-center text-center p-2 md:p-0">
+    <div class="gap-2 md:gap-4 justify-center text-center p-2 md:p-0">
       <h2 class="text-3xl font-bold text-indigo-800 mt-2 md:mt-6 mt-4 mb-6 md:mb-2">
         Welcome to the ARRL Minnesota Section
       </h2>
@@ -35,7 +35,7 @@
           <p>
             <strong>{{ item.role }}:</strong> 
             {{ item.name }},
-            <a class="text-blue-600" href="https://www.qrz.com/db/{{ item.callsign }}" target="_blank" rel="noopener noreferrer">{{ item.callsign }}</a>
+            <a class="text-blue-600" href="https://www.qrz.com/db/{{ item.call_sign }}" target="_blank" rel="noopener noreferrer">{{ item.call_sign }}</a>
             {% if item.email %}
               (<a class="text-blue-600" href="mailto:{{ item.email }}">Contact</a>)
             {% endif %}
