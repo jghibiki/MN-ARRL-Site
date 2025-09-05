@@ -12,7 +12,8 @@ export default async function (eleventyConfig) {
 	let pathPrefix = undefined
 	if (env === "production") {
 		outputPath = 'docs'
-		pathPrefix = '/MN-ARRL-Site'
+		// if hosting via github pages with no custom domain the below is needed
+		//pathPrefix = '/MN-ARRL-Site'
 	}
 
 	eleventyConfig.setInputDirectory("src")

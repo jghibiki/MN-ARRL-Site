@@ -197,9 +197,6 @@
   .collapse {
     visibility: collapse;
   }
-  .col-span-1 {
-    grid-column: span 1 / span 1;
-  }
   .col-span-2 {
     grid-column: span 2 / span 2;
   }
@@ -251,9 +248,6 @@
   .mb-6 {
     margin-bottom: calc(var(--spacing) * 6);
   }
-  .mb-8 {
-    margin-bottom: calc(var(--spacing) * 8);
-  }
   .block {
     display: block;
   }
@@ -268,9 +262,6 @@
   }
   .min-h-2 {
     min-height: calc(var(--spacing) * 2);
-  }
-  .w-6 {
-    width: calc(var(--spacing) * 6);
   }
   .w-32 {
     width: calc(var(--spacing) * 32);
@@ -428,10 +419,6 @@
   .text-3xl {
     font-size: var(--text-3xl);
     line-height: var(--tw-leading, var(--text-3xl--line-height));
-  }
-  .text-4xl {
-    font-size: var(--text-4xl);
-    line-height: var(--tw-leading, var(--text-4xl--line-height));
   }
   .text-sm {
     font-size: var(--text-sm);
