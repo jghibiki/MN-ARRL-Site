@@ -5,37 +5,5 @@
 {% block content %}
   <div class="flex-auto gap-4 text-center justify-center">
     <p>This is the about page. More content coming soon!</p>
-
-    <div class="flex-auto m-5 p-0 border-2 border-indigo-500">
-        <button class="accordion">Section Clubs</button>
-        <div class="panel flex text-left">
-            <div class="flex-auto m-5 justify-start">
-                hello
-            </div>
-        </div>
-    </div>
-
-</div>
   </div>
-{% endblock %}
-
-{% block scripts %}
-var acc = document.getElementsByClassName("accordion");
-var i;
-
-for (i = 0; i < acc.length; i++) {
-  acc[i].addEventListener("click", function() {
-    /* Toggle between adding and removing the "active" class,
-    to highlight the button that controls the panel */
-    this.classList.toggle("active");
-
-    /* Toggle between hiding and showing the active panel */
-    var panel = this.nextElementSibling;
-    if (panel.style.display === "block") {
-      panel.style.display = "none";
-    } else {
-      panel.style.display = "block";
-    }
-  });
-} 
 {% endblock %}
