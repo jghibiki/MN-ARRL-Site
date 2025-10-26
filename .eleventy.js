@@ -4,7 +4,7 @@ import postcss from 'postcss';
 import tailwindcss from '@tailwindcss/postcss';
 import { HtmlBasePlugin } from "@11ty/eleventy";
 import { DateTime } from 'luxon';
-
+import { feedPlugin } from "@11ty/eleventy-plugin-rss";
 
 export default async function (eleventyConfig) {
 	const env = process.env.APP_BUILD_ENV;
@@ -69,6 +69,25 @@ export default async function (eleventyConfig) {
 			}).toFormat(format);
 		}
 	})
+
+	eleventyConfig.addPlugin(feedPlugin, {
+		type: "atom", // or "rss", "json"
+		outputPath: "/feed.xml",
+		collection: {
+			name: "news", // iterate over `collections.news`
+			limit: 10,     // 0 means no limit
+		},
+		metadata: {
+			language: "en",
+			title: "Minnesota ARRL Section News",
+			subtitle: "Latest news from the Minnesota ARRL Section",
+			base: "https://mnarrl.org",
+			author: {
+				name: "MN ARRL",
+				email: "", // Optional
+			}
+		}
+	});
 
 	return {
 		dir: {
