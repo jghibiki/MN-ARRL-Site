@@ -1,0 +1,13 @@
+
+{% macro quick_links_list(quick_links) %}
+    <h3 class="text-2xl font-bold text-indigo-800 mt-6">
+    Quick Links:
+    </h3>
+    {% for item in quick_links.quick_links %}
+    <ul class="list-disc list-inside">
+        <li>
+        <a class="text-blue-600" href="{{ item.link }}" target="_blank" rel="noopener noreferrer">{{ item.name }}</a>
+        </li>
+    </ul>
+    {% endfor %}
+{% endmacro %}
