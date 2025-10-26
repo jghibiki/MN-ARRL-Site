@@ -19,8 +19,8 @@
 				<h1 class="md:text-4xl text-2xl">{{ site_title }}</h1>
 		    </a>
         </div>
-        <div class="collapse md:col-span-2"></div>
-		<div class="md:col-span-2 col-span-7 content-center flex md:gap-4 gap-4">
+        <div class="collapse md:col-span-1"></div>
+		<div class="md:col-span-3 col-span-7 content-center flex md:gap-4 gap-4">
 			<div class="flex-auto content-center">
 				<a href="/about/">
 				About
@@ -30,6 +30,11 @@
 				<a href="/clubs/">
 					Clubs
 				</a>
+			</div>
+			<div class="flex-auto content-center">
+				<a href="/repeaters/">
+					Repeaters
+				</a>		
 			</div>
 			<div class="flex-auto content-center">
 				<a href="/resources/">
@@ -69,24 +74,6 @@
 				</div>
 				<div class="md:col-span-4 col-span-6 p-2 md:p-0 flex justify-center">
 					{% block content %}
-						<div class="flex-auto">
-							<div class="flex-auto text-center">
-								{{ date | date("yyyy-MM-dd") }} 
-								{% if author %} 
-									- By {{ author }}
-								{% endif %} 
-								{% if call_sign %} 
-									- <a class="text-blue-600 hover:underline" href="https://www.qrz.com/db/{{ call_sign }}" target="_blank" rel="noopener noreferrer">{{ call_sign }}</a>
-								{% endif %}
-							</div>
-							<div class="grid grid-cols-6 mt-4">
-								<div></div>
-								<div class="text-left col-span-4 markdown">
-									{{ content | safe }}
-								<div>
-								<div></div>
-							</div>
-						</div>
 					{% endblock %}
 				</div>
 				<div class="md:col-span-1">
@@ -96,6 +83,10 @@
 			</div>
 		</div>
     </main>
+	<footer class="mb-20">
+		{% block footer %}
+		{% endblock %}
+	</footer>
 	<script>
 		{% block scripts %}{% endblock %}
 	</script>

@@ -1,9 +1,41 @@
 {% extends "./templates/grail.njk" %}
 
-{%set page_title = "About" %}
+{% set page_title = "About" %}
+
+{% block header %}
+  <div class="text-center">
+    <h2 class="text-3xl font-bold text-indigo-800 mt-4 mb-4">About Ham Radio in Minnesota</h2>
+  </div>
+{% endblock %}
 
 {% block content %}
-  <div class="flex-auto gap-4 text-center justify-center">
-    <p>This is the about page. More content coming soon!</p>
+  <div class="prose max-w-3xl mx-auto text-left">
+    <h3 class="text-2xl font-bold text-indigo-800 mb-4 mt-8">What is Amateur (Ham) Radio?</h3>
+    <p>
+      From the National ARRL website: "Amateur Radio (ham radio) is a popular hobby and service that brings people, electronics and communication together. People use ham radio to talk across town, around the world, or even into space, all without the Internet or cell phones. It's fun, social, educational, and can be a lifeline during times of need."
+      <a class="text-blue-600" href="https://www.arrl.org/what-is-ham-radio" target="_blank" rel="noopener noreferrer">See here for more info on the National ARRL Website.</a>
+    </p>
+
+    <h3 class="text-2xl font-bold text-indigo-800 mb-4 mt-8">Organized Clubs and Repeaters</h3>
+    <p>
+      We have many active local clubs with regular meetings, and events. Several clubs operate VHF/UHF repeater systems which are often busy with rag chews (friendly chit-chat) especially during the club nets, or commute drive times.
+      See the <a class="text-blue-600" href="/clubs">Clubs page</a> for a listing of local clubs.
+      See the <a class="text-blue-600" href="/repeaters">Repeaters page</a> for a listing of local repeaters.
+    </p>
+
+    <h3 class="text-2xl font-bold text-indigo-800 mb-4 mt-8">Public service and emergency communications</h3>
+    <p>
+      Minnesota operators have long participated in emergency communications programs such as ARES (Amateur Radio Emergency Service), 
+      RACES, and Skywarn, working with the National Weather Service and local emergency management. For more information on Skywarn 
+      and ARES see the links on the <a class="text-blue-600" href="/resources" >Resources page</a>.
+    </p>
+
+    <h3 class="text-2xl font-bold text-indigo-800 mb-4 mt-8">Contribute</h3>
+    <p>
+      If you have corrections, dates, or photos from Minnesota ham radio history you'd like to share, please reach out via the contact form on the  
+      <a class="text-blue-600" href="https://www.arrl.org/what-is-ham-radio" target="_blank" rel="noopener noreferrer">Resources page.</a>
+      We'd love to flesh this page out with more history and pictures of local hams over the years! Additionally, feel free to contact us if you're a 
+      local ham or club interested in contributing news, events, or other content to this site.
+    </p>
   </div>
 {% endblock %}

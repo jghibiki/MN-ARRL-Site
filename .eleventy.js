@@ -5,6 +5,7 @@ import tailwindcss from '@tailwindcss/postcss';
 import { HtmlBasePlugin } from "@11ty/eleventy";
 import { DateTime } from 'luxon';
 import { feedPlugin } from "@11ty/eleventy-plugin-rss";
+import markdownIt from "markdown-it";
 
 export default async function (eleventyConfig) {
 	const env = process.env.APP_BUILD_ENV;
@@ -89,11 +90,18 @@ export default async function (eleventyConfig) {
 		}
 	});
 
+	eleventyConfig.setLibrary("md", markdownIt({
+		html: true,
+		breaks: true,
+		linkify: true,
+	}))
+
 	return {
 		dir: {
 			output: outputPath,
 		},
-		pathPrefix: pathPrefix
+		pathPrefix: pathPrefix,
+		markdownTemplateEngine: "njk",
 	}
 };
 

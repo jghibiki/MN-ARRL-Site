@@ -1,0 +1,23 @@
+{% extends "./grail.njk" %}
+
+
+{% block content %}
+    <div class="flex-auto">
+        <div class="flex-auto text-center">
+            {{ date | date("yyyy-MM-dd") }} 
+            {% if author %} 
+                - By {{ author }}
+            {% endif %} 
+            {% if call_sign %} 
+                - <a class="text-blue-600 hover:underline" href="https://www.qrz.com/db/{{ call_sign }}" target="_blank" rel="noopener noreferrer">{{ call_sign }}</a>
+            {% endif %}
+        </div>
+        <div class="grid grid-cols-6 mt-4">
+            <div></div>
+            <article class="text-left col-span-4 prose">
+                {{ content | safe }}
+            <article>
+            <div></div>
+        </div>
+    </div>
+{% endblock %}
