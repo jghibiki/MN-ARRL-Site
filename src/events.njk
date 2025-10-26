@@ -5,6 +5,7 @@
 {% set page_title = "Events" %}
 
 {% set sorted_events = events_data.events | multi_attribute_sort(["start_date", "start_time"], true) %}
+{% set sorted_past_events = events_data.past_events | multi_attribute_sort(["start_date", "start_time"], true) %}
 
 {% block header %}
     <div class="gap-4 justyfy-center text-center">
@@ -15,21 +16,45 @@
 {% endblock %}
 
 {% block content %}
-  <div class="flex-auto gap-4 text-center justify-center">
-    <div class="flex mr-5 mb-4">
-      <div class="flex-auto"></div>
-      <div class="flex-span">
-        <a href="https://forms.gle/ZMSWXadwb7TYZxSr5" target="_blank" rel="noopener noreferrer">
-          <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-            Add an Event
-          </button>
-        </a>
+  <div>
+    <div class="flex-auto gap-4 text-center justify-center">
+      <div class="flex mr-5 mb-4">
+        <div class="flex-auto"></div>
+        <div class="flex-span">
+          <a href="https://forms.gle/ZMSWXadwb7TYZxSr5" target="_blank" rel="noopener noreferrer">
+            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+              Add an Event
+            </button>
+          </a>
+        </div>
+      </div>
+      <div class="grid md:grid-cols-2 md:gap-4 gap-1">
+        {% if sorted_events.length == 0 %}
+          <p class="text-gray-600">No upcoming events at this time. Please check back later!</p>
+        {% else %}
+        {% for event in sorted_events %}
+          {{ event_macros.event_card(event) }}
+        {% endfor %}
+        {% endif %}
+
       </div>
     </div>
-    <div class="grid md:grid-cols-2 md:gap-4 gap-1">
-      {% for event in sorted_events %}
-        {{ event_macros.event_card(event) }}
-      {% endfor %}
+
+    <div class="gap-4 justyfy-center text-center">
+      <h2 class="text-3xl font-bold text-indigo-800 md:mt-6 mt-4 md:mb-8 mb-4">
+        Past Events
+      </h2>
+    </div>
+    <div class="flex-auto gap-4 text-center justify-center">
+      <div class="grid md:grid-cols-2 md:gap-4 gap-1">
+        {% if sorted_past_events.length == 0 %}
+          <p class="text-gray-600">No past events available.</p>
+        {% else %}
+          {% for event in sorted_past_events %}
+            {{ event_macros.event_card(event) }}
+          {% endfor %}
+        {% endif %}
+      </div>
     </div>
   </div>
 {% endblock %}
