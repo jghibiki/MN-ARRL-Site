@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+  <title>Minnesota ARRL Section News</title>
+  <subtitle>Latest news from the Minnesota ARRL Section</subtitle>
+  <link href="https://mnarrl.org/feed.xml" rel="self" />
+  <link href="https://mnarrl.org/" />
+  <updated>2025-10-26T00:00:00Z</updated>
+  <id>https://mnarrl.org/</id>
+  <author>
+    <name>MN ARRL</name>
+  </author>
+  <entry>
+    <title>Hello World</title>
+    <link href="https://mnarrl.org/news/2025-09-04-01/" />
+    <updated>2025-09-04T00:00:00Z</updated>
+    <id>https://mnarrl.org/news/2025-09-04-01/</id>
+    <content type="html">&lt;p&gt;It lives! And by &amp;quot;it&amp;quot;, we mean this site!&lt;/p&gt;
+&lt;p&gt;I had been planning to create a site for the MN ARRL section shortly after Bill AE0EE asked me to help out with things as the section Technical Coordinator. But with the sunset of the MinnesotaHamRadio site, we were presented with a great opportunity to help preserve a set of valuable Minnesota community resources without (hopefully) stepping on any toes. In light of that I want to thank those who helped run the Minnesota Ham Radio site. It certainly helped me early in my ham journey to find minnesota specific resources easily.&lt;/p&gt;
+&lt;p&gt;Right off the bat here the site will be a bit bare-bones, but it&#39;s my hope to be able to resurrect and refresh many of the resources that were previously hosted on the Minnesota Ham Radio site.&lt;/p&gt;
+</content>
+  </entry>
+  <entry>
+    <title>Still under construction</title>
+    <link href="https://mnarrl.org/news/2025-10-26/" />
+    <updated>2025-10-26T00:00:00Z</updated>
+    <id>https://mnarrl.org/news/2025-10-26/</id>
+    <content type="html">&lt;p&gt;Well, a little over one month in and the site is still in the works, but I&#39;m working on getting some of the backbone of the site optimized and cleaned up. I think I&#39;ve got most of the things working the way I want them to, so now I can work on flushing the site out with content.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;New additions/modifications:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;some changes to the backend of the site rendering&lt;/li&gt;
+&lt;li&gt;Updated the &amp;quot;About&amp;quot; page&lt;/li&gt;
+&lt;li&gt;Added the Repeaters page as a stub for now.&lt;/li&gt;
+&lt;li&gt;Added a plugin to the site generator to generate a RSS feed for the site news.&lt;/li&gt;
+&lt;li&gt;Updated the events page&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;TODO:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Flush out the Repeaters page&lt;/li&gt;
+&lt;li&gt;Flush out the Resources page&lt;/li&gt;
+&lt;li&gt;Share the site more vocally with the community. (Currently it&#39;s live on the internet, but only a few people know about it, other than those who stumble upon it via a search engine).&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+  </entry>
+</feed>
